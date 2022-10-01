@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { CityDetail, CityList } from "./src/screens";
+import { AppProvider } from "./src/provider";
+import { colors } from "./src/design";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="CityList"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: colors.primary,
+            },
+          }}
+        >
+          <Stack.Screen
+            name="CityList"
+            component={CityList}
+            options={{ title: "", headerShadowVisible: false }}
+          />
+          <Stack.Screen
+            name="CityDetail"
+            component={CityDetail}
+            options={{
+              headerShadowVisible: false,
+              title: "",
+              headerTintColor: colors.white,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
