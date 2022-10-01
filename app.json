@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "city_weather_RN",
-    "slug": "city_weather_RN",
+    "owner": "nandirb",
+    "name": "weather_RN",
+    "slug": "weather",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,11 +15,10 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.weatherapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +28,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3c43acb2-5900-4736-9157-52725b172ff5"
+      }
     }
   }
 }
